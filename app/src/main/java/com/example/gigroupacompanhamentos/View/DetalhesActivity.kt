@@ -1,4 +1,4 @@
-package com.example.gigroupacompanhamentos
+package com.example.gigroupacompanhamentos.View
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

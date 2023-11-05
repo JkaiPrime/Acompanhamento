@@ -6,10 +6,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gigroupacompanhamentos.DetalhesActivity
+import com.example.gigroupacompanhamentos.View.DetalhesActivity
 import com.example.gigroupacompanhamentos.R
 import com.example.gigroupacompanhamentos.ROOM.PessoaDB
-import com.example.gigroupacompanhamentos.UpdateActivity
+import com.example.gigroupacompanhamentos.View.UpdateActivity
 
 class PessoaAdapter(private val context: Context): RecyclerView.Adapter<PessoaViewHolder>() {
     private val dao = PessoaDB.getInstance(context).getDao()
@@ -27,7 +27,7 @@ class PessoaAdapter(private val context: Context): RecyclerView.Adapter<PessoaVi
     override fun onBindViewHolder(holder: PessoaViewHolder, position: Int) {
         val pessoa = listaPessoas[position]
 
-        holder.item.text = "Nome: ${pessoa.nome}\nStatus: ${pessoa.status}\nEmpresa: ${pessoa.empresa}"
+        holder.item.text = "Nome: ${pessoa.nome}\nGenero: ${pessoa.genero}\nStatus: ${pessoa.status}\nEmpresa: ${pessoa.empresa}"
 
         holder.item.setOnClickListener {
             var intent = Intent(context, DetalhesActivity::class.java)

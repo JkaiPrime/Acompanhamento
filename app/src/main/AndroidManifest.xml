@@ -13,16 +13,16 @@
         android:theme="@style/Theme.GiGroupAcompanhamentos"
         tools:targetApi="31">
         <activity
-            android:name=".UpdateActivity"
+            android:name=".View.UpdateActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalhesActivity"
+            android:name=".View.DetalhesActivity"
             android:exported="false" />
         <activity
-            android:name=".CadastroActivity"
+            android:name=".View.CadastroActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".View.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

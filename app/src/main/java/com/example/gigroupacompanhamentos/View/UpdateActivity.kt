@@ -1,8 +1,9 @@
-package com.example.gigroupacompanhamentos
+package com.example.gigroupacompanhamentos.View
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import com.example.gigroupacompanhamentos.R
 import com.example.gigroupacompanhamentos.ROOM.Pessoa
 import com.example.gigroupacompanhamentos.ROOM.PessoaDAO
 import com.example.gigroupacompanhamentos.ROOM.PessoaDB

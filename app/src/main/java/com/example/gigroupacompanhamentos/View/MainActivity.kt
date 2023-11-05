@@ -1,4 +1,4 @@
-package com.example.gigroupacompanhamentos
+package com.example.gigroupacompanhamentos.View
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnCadastrar.setOnClickListener {
+        binding.btnFabAdd.setOnClickListener {
             startActivity(Intent(this, CadastroActivity::class.java))
         }
         pessoaAdapter = PessoaAdapter(this)
