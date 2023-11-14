@@ -16,16 +16,23 @@ class CadastroActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCadastroBinding
     private lateinit var dao:PessoaDAO
     private lateinit var ValidateInput:ValidateInput
+    private lateinit var genero:String
     fun validateRadioButtonGenero(view: View):String {
         if (view is RadioButton) {
             val checked = view.isChecked
 
             when (view.id) {
+                R.id.btnLGBT->{
+                    if (checked){
+                        return "LGBTQIAPN+"
+                    }
+                }
                 R.id.btnM -> {
                     if (checked) {
                         return "Masculino"
                     }
                 }
+
             }
         }
         return "Feminino"
@@ -64,8 +71,18 @@ class CadastroActivity : AppCompatActivity() {
         setContentView(binding.root)
         dao = PessoaDB.getInstance(this).getDao()
         binding.btnCadastrar.setOnClickListener {
-            val genero = validateRadioButtonGenero(binding.btnM)
             val status = validateRadioButtonStatus(binding.rdBtnEntrevista)
+            ValidateInput = ValidateInput()
+            if (binding.btnLGBT.isChecked){
+                genero = "LGBTQIAPN+"
+            }
+            if (binding.btnM.isChecked){
+                genero = "Masculino"
+            }
+            if (binding.btnF.isChecked){
+                genero = "Feminino"
+            }
+
             var pessoa = Pessoa(0,
                 binding.edtNome.text.toString(),
                 genero,
@@ -73,8 +90,7 @@ class CadastroActivity : AppCompatActivity() {
                 binding.edtEmail.text.toString(),
                 status,
                 binding.edtEmpresa.text.toString()
-                )
-            ValidateInput = ValidateInput()
+            )
             if (ValidateInput.init(pessoa)) {
                 dao.salvar(pessoa)
                 finish()
@@ -85,4 +101,5 @@ class CadastroActivity : AppCompatActivity() {
         }
 
     }
+
 }
