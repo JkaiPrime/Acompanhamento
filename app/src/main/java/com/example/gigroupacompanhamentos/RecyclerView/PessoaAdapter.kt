@@ -15,7 +15,8 @@ class PessoaAdapter(private val context: Context): RecyclerView.Adapter<PessoaVi
     private val dao = PessoaDB.getInstance(context).getDao()
     private var listaPessoas = dao.getAll()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PessoaViewHolder {
-        val pessoasLayout = LayoutInflater.from(context).inflate(R.layout.pessoa_layout,parent,false)
+        val pessoasLayout = LayoutInflater.from(context)
+            .inflate(R.layout.pessoa_layout,parent,false)
         return PessoaViewHolder(pessoasLayout)
     }
 
@@ -27,7 +28,8 @@ class PessoaAdapter(private val context: Context): RecyclerView.Adapter<PessoaVi
     override fun onBindViewHolder(holder: PessoaViewHolder, position: Int) {
         val pessoa = listaPessoas[position]
 
-        holder.item.text = "Nome: ${pessoa.nome}\nGenero: ${pessoa.genero}\nStatus: ${pessoa.status}\nEmpresa: ${pessoa.empresa}"
+        holder.item.text = "Nome: ${pessoa.nome}\nGenero: ${pessoa.genero}\n" +
+                "Status: ${pessoa.status}\nEmpresa: ${pessoa.empresa}"
 
         holder.item.setOnClickListener {
             var intent = Intent(context, DetalhesActivity::class.java)
