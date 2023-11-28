@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".View.DetalhesActivity"
     android:orientation="vertical"
+    android:padding="15dp"
     tools:ignore="HardCodedText">
     <TextView
         android:id="@+id/edtNome"
@@ -13,53 +14,59 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="NOME"
-        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="start|center"
         android:gravity="start"
-        android:textSize="25sp"/>
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/edtTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="Telefone"
         android:gravity="start"
-        android:layout_gravity="center"
-        android:textSize="25sp"/>
+        android:layout_gravity="start|center"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/edtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="E-mail"
         android:gravity="start"
-        android:layout_gravity="center"
-        android:textSize="25sp"/>
+        android:layout_gravity="start|center"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/edtGenero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="Genero"
         android:gravity="start"
-        android:layout_gravity="center"
-        android:textSize="25sp"/>
+        android:layout_gravity="start|center"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/edtStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="Status"
         android:gravity="start"
-        android:layout_gravity="center"
-        android:textSize="25sp"/>
+        android:layout_gravity="start|center"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/edtEmpresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="Empresa"
         android:gravity="start"
-        android:layout_gravity="center"
-        android:textSize="25sp"/>
+        android:layout_gravity="start|center"
+        android:textSize="20sp"/>
 
 </LinearLayout>
