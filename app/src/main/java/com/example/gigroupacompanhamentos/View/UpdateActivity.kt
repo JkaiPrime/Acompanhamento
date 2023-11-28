@@ -22,10 +22,22 @@ class UpdateActivity : MainActivity() {
     private lateinit var genero:String
     private lateinit var status:String
     private fun Genero(binding: ActivityUpdateBinding):String{
-        if (binding.btnUpdateLGBT.isChecked){return "LGBTQIAPN+"}
+        if (binding.btnUpdateOutroGenero.isChecked){return "Outro"}
         if (binding.btnUpdateM.isChecked){return "Masculino"}
         if (binding.btnUpdateF.isChecked){return "Feminino"}
         return "Nada"
+    }
+    private fun CheckRadioButtonGenero(binding: ActivityUpdateBinding, pessoa: Pessoa){
+        if (pessoa.genero == "Masculino"){binding.btnUpdateM.isChecked=true}
+        if (pessoa.genero == "Feminino"){binding.btnUpdateF.isChecked=true}
+        if (pessoa.genero == "Outro"){binding.btnUpdateOutroGenero.isChecked=true}
+    }
+    private fun CheckRadioButtonStatus(binding: ActivityUpdateBinding, pessoa: Pessoa){
+        if (pessoa.status == "Abordado"){binding.rdBtnUpdateAbordado.isChecked=true}
+        if (pessoa.status == "Em Entrevista"){binding.rdBtnUpdateEntrevista.isChecked=true}
+        if (pessoa.status == "Aprovado"){binding.rbBtnUpdateAprovado.isChecked=true}
+        if (pessoa.status == "Reprovado"){binding.rbBtnUpdateReprovado.isChecked=true}
+        if (pessoa.status == "Em Admissão"){binding.rbBtnUpdateAdmissao.isChecked=true}
     }
     private fun Status(binding: ActivityUpdateBinding):String{
         if (binding.rdBtnUpdateAbordado.isChecked){return "Abordado"}
@@ -48,7 +60,8 @@ class UpdateActivity : MainActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         id = intent.getIntExtra("id",0)
         pessoa = viewModel.BuscarUm(id)
-
+        CheckRadioButtonGenero(binding,pessoa)
+        CheckRadioButtonStatus(binding,pessoa)
 
         binding.updateNome.text = Editable.Factory.getInstance().newEditable(pessoa.nome)
         binding.updateTelefone.text = Editable.Factory.getInstance().newEditable(pessoa.telefone)

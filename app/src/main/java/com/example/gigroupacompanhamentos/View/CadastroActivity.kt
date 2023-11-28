@@ -24,7 +24,7 @@ class CadastroActivity : MainActivity() {
     private lateinit var status:String
 
     private fun butãoGenero(binding: ActivityCadastroBinding):String{
-        if (binding.btnLGBT.isChecked){return "LGBTQIAPN+"}
+        if (binding.btnOutroGenero.isChecked){return "Outro"}
         if (binding.btnM.isChecked){return "Masculino"}
         if (binding.btnF.isChecked){return "Feminino"}
         return "Nada"

@@ -14,6 +14,7 @@
         android:layout_marginTop="40dp"
         android:text="NOME"
         android:layout_gravity="center"
+        android:gravity="start"
         android:textSize="25sp"/>
     <TextView
         android:id="@+id/edtTelefone"
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Telefone"
+        android:gravity="start"
         android:layout_gravity="center"
         android:textSize="25sp"/>
     <TextView
@@ -29,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="E-mail"
+        android:gravity="start"
         android:layout_gravity="center"
         android:textSize="25sp"/>
     <TextView
@@ -37,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Genero"
+        android:gravity="start"
         android:layout_gravity="center"
         android:textSize="25sp"/>
     <TextView
@@ -45,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Status"
+        android:gravity="start"
         android:layout_gravity="center"
         android:textSize="25sp"/>
     <TextView
@@ -53,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Empresa"
+        android:gravity="start"
         android:layout_gravity="center"
         android:textSize="25sp"/>
 

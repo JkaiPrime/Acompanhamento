@@ -54,10 +54,11 @@ class DetalhesActivity : MainActivity() {
         id = intent.getIntExtra("id",0)
         pessoa = viewModel.BuscarUm(id)
 
-        binding.edtNome.text = pessoa.nome
-        binding.edtTelefone.text = pessoa.telefone
-        binding.edtEmail.text = pessoa.email
-        binding.edtGenero.text = pessoa.genero
-        binding.edtStatus.text = pessoa.status
+        binding.edtNome.text = "Nome: ${pessoa.nome}"
+        binding.edtTelefone.text = "Telefone: ${pessoa.telefone}"
+        binding.edtEmail.text = "E-mail: ${pessoa.email}"
+        binding.edtGenero.text = "Genero: ${pessoa.genero}"
+        binding.edtStatus.text = "Status: ${pessoa.status}"
+        binding.edtEmpresa.text = "Empresa: ${pessoa.empresa}"
     }
 }
