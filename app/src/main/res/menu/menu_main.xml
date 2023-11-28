@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/enviar"
+        android:title="Enviar"
+        android:icon="@drawable/send_ic"
+        app:showAsAction="always"/>
+    <!--<item
+        android:id="@+id/ConfigEmail"
+        android:title="Configurar E-mail"
+        android:icon="@drawable/settings_ic"
+        app:showAsAction="always"/>-->
+</menu>

@@ -59,9 +59,5 @@ class DetalhesActivity : MainActivity() {
         binding.edtEmail.text = pessoa.email
         binding.edtGenero.text = pessoa.genero
         binding.edtStatus.text = pessoa.status
-        binding.edtEmpresa.text = pessoa.empresa
-        binding.btnVoltar.setOnClickListener {
-            finish()
-        }
     }
 }
