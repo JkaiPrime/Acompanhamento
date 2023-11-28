@@ -1,29 +1,53 @@
 package com.example.gigroupacompanhamentos.View
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Switch
 import com.example.gigroupacompanhamentos.R
 import com.example.gigroupacompanhamentos.ROOM.Pessoa
 import com.example.gigroupacompanhamentos.ROOM.PessoaDAO
 import com.example.gigroupacompanhamentos.ROOM.PessoaDB
+import com.example.gigroupacompanhamentos.ViewModel.UpdateViewModel
 import com.example.gigroupacompanhamentos.databinding.ActivityUpdateBinding
 
-class UpdateActivity : AppCompatActivity() {
+class UpdateActivity : MainActivity() {
     private lateinit var binding: ActivityUpdateBinding
     private var id:Int = 0
-    private lateinit var dao:PessoaDAO
     private lateinit var pessoa: Pessoa
+    private val viewModel = UpdateViewModel(this)
+    private lateinit var genero:String
+    private lateinit var status:String
+    private fun Genero(binding: ActivityUpdateBinding):String{
+        if (binding.btnUpdateLGBT.isChecked){return "LGBTQIAPN+"}
+        if (binding.btnUpdateM.isChecked){return "Masculino"}
+        if (binding.btnUpdateF.isChecked){return "Feminino"}
+        return "Nada"
+    }
+    private fun Status(binding: ActivityUpdateBinding):String{
+        if (binding.rdBtnUpdateAbordado.isChecked){return "Abordado"}
+        if (binding.rdBtnUpdateEntrevista.isChecked){return "Em Entrevista"}
+        if (binding.rbBtnUpdateAprovado.isChecked){return "Aprovado"}
+        if (binding.rbBtnUpdateReprovado.isChecked){return "Reprovado"}
+        if (binding.rbBtnUpdateAdmissao.isChecked){return "Em Admissão"}
+        return "Nada"
+    }
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val menuItemToHide = menu.findItem(R.id.enviar)
+        menuItemToHide?.isVisible = false
 
-
-
+        return super.onPrepareOptionsMenu(menu)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         id = intent.getIntExtra("id",0)
-        dao = PessoaDB.getInstance(this).getDao()
-        pessoa = dao.getOne(id)
+        pessoa = viewModel.BuscarUm(id)
 
 
         binding.updateNome.text = Editable.Factory.getInstance().newEditable(pessoa.nome)
@@ -31,31 +55,8 @@ class UpdateActivity : AppCompatActivity() {
         binding.updateEmail.text = Editable.Factory.getInstance().newEditable(pessoa.email)
         binding.updateEmpresa.text = Editable.Factory.getInstance().newEditable(pessoa.empresa)
 
-        binding.radioGroupGenero.setOnCheckedChangeListener { radioGroup, checkedId ->
-            val generoSelecionado = when (checkedId) {
-                R.id.btnM -> "Masculino"
-                R.id.btnF -> "Feminino"
-                else -> "Masculino"
-            }
-            pessoa.genero = generoSelecionado
-        }
-        binding.radioGroupStatus.setOnCheckedChangeListener { radioGroup, checkedId ->
-            val statusSelecionado = when (checkedId) {
-                R.id.rdBtnAbordado -> "Abordado"
-                R.id.rdBtnEntrevista -> "Em Entrevista"
-                R.id.rbBtnAprovado -> "Aprovado"
-                R.id.rbBtnReprovado -> "Reprovado"
-                R.id.rbBtnAdmissao -> "Em Admissão"
-                else -> "Abordado" // Valor padrão se nenhum botão for selecionado
-            }
-            pessoa.status = statusSelecionado
-        }
-
-
-
-
         binding.btnDel.setOnClickListener {
-            dao.deletar(pessoa)
+            viewModel.deletar(pessoa)
             finish()
         }
         binding.btnUpdate.setOnClickListener {
@@ -63,7 +64,9 @@ class UpdateActivity : AppCompatActivity() {
             pessoa.telefone = binding.updateTelefone.text.toString()
             pessoa.email = binding.updateEmail.text.toString()
             pessoa.empresa = binding.updateEmpresa.text.toString()
-            dao.atualizar(pessoa)
+            pessoa.genero = Genero(binding)
+            pessoa.status = Status(binding)
+            viewModel.AtualizarPessoa(pessoa)
             finish()
         }
 

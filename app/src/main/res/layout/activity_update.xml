@@ -54,7 +54,7 @@
                 android:text="Genero"
                 android:layout_gravity="center"/>
             <RadioButton
-                android:id="@+id/btnM"
+                android:id="@+id/btnUpdateM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -62,12 +62,19 @@
                 android:text="Masculino" />
 
             <RadioButton
-                android:id="@+id/btnF"
+                android:id="@+id/btnUpdateF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:padding="10dp"
                 android:text="Feminino" />
+            <RadioButton
+                android:id="@+id/btnUpdateLGBT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="LGBTQIAPN+" />
         </RadioGroup>
 
         <RadioGroup
@@ -85,35 +92,35 @@
                 android:textSize="20sp" />
 
             <RadioButton
-                android:id="@+id/rdBtnAbordado"
+                android:id="@+id/rdBtnUpdateAbordado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="Abordado" />
 
             <RadioButton
-                android:id="@+id/rdBtnEntrevista"
+                android:id="@+id/rdBtnUpdateEntrevista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="Em Entrevista" />
 
             <RadioButton
-                android:id="@+id/rbBtnAprovado"
+                android:id="@+id/rbBtnUpdateAprovado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="Aprovado" />
 
             <RadioButton
-                android:id="@+id/rbBtnReprovado"
+                android:id="@+id/rbBtnUpdateReprovado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="Reprovado" />
 
             <RadioButton
-                android:id="@+id/rbBtnAdmissao"
+                android:id="@+id/rbBtnUpdateAdmissao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"

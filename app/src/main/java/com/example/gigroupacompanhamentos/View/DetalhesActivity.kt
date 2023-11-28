@@ -12,13 +12,14 @@ import com.example.gigroupacompanhamentos.R
 import com.example.gigroupacompanhamentos.ROOM.Pessoa
 import com.example.gigroupacompanhamentos.ROOM.PessoaDAO
 import com.example.gigroupacompanhamentos.ROOM.PessoaDB
+import com.example.gigroupacompanhamentos.ViewModel.DetalhesViewModel
 import com.example.gigroupacompanhamentos.databinding.ActivityDetalhesBinding
 
-class DetalhesActivity : AppCompatActivity() {
+class DetalhesActivity : MainActivity() {
     private lateinit var binding: ActivityDetalhesBinding
     private var id:Int = 0
     private lateinit var pessoa: Pessoa
-    private lateinit var dao:PessoaDAO
+    private val viewModel:DetalhesViewModel = DetalhesViewModel(this)
     private fun getInformationsAsString(pessoa: Pessoa):String{
         return "Nome:${pessoa.nome}\nGenero:${pessoa.genero}\nTelefone:${pessoa.telefone}\n" +
                 "E-mail:${pessoa.email}\nStatus:${pessoa.status}\nEmpresa:${pessoa.empresa}"
@@ -49,9 +50,9 @@ class DetalhesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetalhesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        dao = PessoaDB.getInstance(this).getDao()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         id = intent.getIntExtra("id",0)
-        pessoa = dao.getOne(id)
+        pessoa = viewModel.BuscarUm(id)
 
         binding.edtNome.text = pessoa.nome
         binding.edtTelefone.text = pessoa.telefone

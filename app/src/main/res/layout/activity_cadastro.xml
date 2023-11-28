@@ -96,7 +96,6 @@
                 android:id="@+id/rdBtnAbordado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="validateRadioButtonStatus"
                 android:padding="10dp"
                 android:text="Abordado" />
 
@@ -104,7 +103,6 @@
                 android:id="@+id/rdBtnEntrevista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="validateRadioButtonStatus"
                 android:padding="10dp"
                 android:text="Em Entrevista" />
 
@@ -112,7 +110,6 @@
                 android:id="@+id/rbBtnAprovado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="validateRadioButtonStatus"
                 android:padding="10dp"
                 android:text="Aprovado" />
 
@@ -120,7 +117,6 @@
                 android:id="@+id/rbBtnReprovado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="validateRadioButtonStatus"
                 android:padding="10dp"
                 android:text="Reprovado" />
 
@@ -128,7 +124,6 @@
                 android:id="@+id/rbBtnAdmissao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="validateRadioButtonStatus"
                 android:padding="10dp"
                 android:text="Em Admissão" />
 

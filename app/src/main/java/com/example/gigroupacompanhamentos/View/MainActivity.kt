@@ -13,7 +13,7 @@ import com.example.gigroupacompanhamentos.databinding.ActivityMainBinding
 
 
 
-class MainActivity : AppCompatActivity() {
+open class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var pessoaAdapter:PessoaAdapter
 
@@ -26,9 +26,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,EnviarListaEmail::class.java))
             true
         }
-        R.id.ConfigEmail->{
+        /*R.id.ConfigEmail->{
             true
-        }
+        }*/
         else -> {
             super.onOptionsItemSelected(item)
         }
